@@ -1,3 +1,14 @@
-from django.shortcuts import render
+from rest_framework import views, response, status
 
-# Create your views here.
+
+class WebhookView(views.APIView):
+    
+    def post(self, request):
+        data = request.data
+        
+        print(data)
+
+        return response.Response(
+            data=data,
+            status=status.HTTP_200_OK
+        )
